@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.0.5-1
+-------
+#. Remove usage of 'ADMIN_MEDIA_PREFIX' in options.py for move to Django 1.4.
+
 0.0.5
 -----
 #. Remove usage of 'ADMIN_STATIC_PREFIX' in templates for move to Django 1.4.

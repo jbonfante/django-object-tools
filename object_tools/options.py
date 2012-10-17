@@ -55,7 +55,7 @@ class ObjectTool(object):
         js = ['js/core.js', 'js/admin/RelatedObjectLookups.js',
               'js/jquery.min.js', 'js/jquery.init.js']
 
-        media = forms.Media(js=['%s%s' % (settings.ADMIN_MEDIA_PREFIX, url) \
+        media = forms.Media(js=['%s%s%s' % (settings.STATIC_URL, 'admin/', url) \
                 for url in js])
 
         if form:
