@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.0.5-2
+-------
+#. Additional fixes to remove dependency on 'ADMIN_MEDIA_PREFIX' in Django 1.4.
+
 0.0.5-1
 -------
 #. Remove usage of 'ADMIN_MEDIA_PREFIX' in options.py for move to Django 1.4.
