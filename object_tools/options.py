@@ -24,6 +24,16 @@ class ObjectTool(object):
         self.model = model
         self.modeladmin = site._registry.get(model)
 
+        if self.modeladmin:
+            self.modeladmin_changelist_view = self.modeladmin.changelist_view
+            self.modeladmin.changelist_view = self.changelist_view
+
+    def changelist_view(self, request, extra_context=None):
+        """
+        Simple wrapper to pass request to admin/change_list.html
+        """
+        return self.modeladmin_changelist_view(request, extra_context={'request': request})
+
     def construct_form(self, request):
         """
         Constructs form from POST method using self.form_class.
@@ -52,8 +62,8 @@ class ObjectTool(object):
         """
         Collects admin and form media.
         """
-        js = ['js/core.js', 'js/admin/RelatedObjectLookups.js',
-              'js/jquery.min.js', 'js/jquery.init.js']
+        js = ['admin/js/core.js', 'admin/js/admin/RelatedObjectLookups.js',
+              'admin/js/jquery.min.js', 'admin/js/jquery.init.js']
 
         admin_media_prefix = getattr(settings, 'ADMIN_MEDIA_PREFIX', '') or \
             (getattr(settings, 'STATIC_URL', '') + 'admin/')
