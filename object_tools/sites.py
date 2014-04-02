@@ -59,12 +59,12 @@ class ObjectTools(object):
                 self._registry[model] = [object_tool_class(model), ]
 
     def get_urls(self):
-        from django.conf.urls.defaults import patterns, url, include
+        from django.conf.urls import patterns, url, include
 
         urlpatterns = patterns('',)
 
         # Add in each object_tool's views.
-        for model, object_tools in self._registry.iteritems():
+        for model, object_tools in self._registry.items():
             for object_tool in object_tools:
                 urlpatterns += patterns('',
                     url(r'^%s/%s/' % (model._meta.app_label, \
