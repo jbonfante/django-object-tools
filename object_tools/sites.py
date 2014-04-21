@@ -53,7 +53,7 @@ class ObjectTools(object):
                         model.__name__)
 
             # Instantiate the object_tools class to save in the registry
-            if self._registry.has_key(model):
+            if model in self._registry.keys():
                 self._registry[model].append(object_tool_class(model))
             else:
                 self._registry[model] = [object_tool_class(model), ]
