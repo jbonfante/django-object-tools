@@ -13,8 +13,6 @@ def object_tools(context, model, user, exclude=None):
         model_class = model
     else:
         model_class = model.__class__
-    print(tools._registry)
-    print(dir(tools._registry))
     if model_class in tools._registry.keys():
         object_tool_classes = tools._registry[model_class]
     else:
